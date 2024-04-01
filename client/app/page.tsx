@@ -46,7 +46,7 @@ function returnMovies(playlistUrl: string){
 export default function Home() {
   return (
     <main>
-      <div> {returnMovies("https://open.spotify.com/playlist/33i9dQZF1EQpj7X7UK8OOF?si=adb5830c67094b2f")} </div>
+      <div> {returnMovies("https://open.spotify.com/playlist/0vS0U4r2nV9d86apRq3hAp?si=0e93c801326c47af")} </div>
       <div className="grid grid-cols-2 p-12 gap-3 place-content-center">
         <div className="col-span-1 h-24">Logo</div>
         <div className="col-span-1 h-24 text-end">Aditya <br></br> Ojas</div>
