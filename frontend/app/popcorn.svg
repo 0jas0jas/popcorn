@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <!-- Popcorn Body -->
+  <circle cx="100" cy="100" r="70" fill="#FFD700" />
+
+  <!-- Popcorn Stripes -->
+  <ellipse cx="100" cy="50" rx="35" ry="15" fill="#FFFFFF" />
+  <ellipse cx="100" cy="70" rx="45" ry="20" fill="#FFFFFF" />
+  <ellipse cx="100" cy="90" rx="55" ry="25" fill="#FFFFFF" />
+  <ellipse cx="100" cy="110" rx="45" ry="20" fill="#FFFFFF" />
+  <ellipse cx="100" cy="130" rx="35" ry="15" fill="#FFFFFF" />
+
+  <!-- Popcorn Shadow -->
+  <ellipse cx="100" cy="170" rx="90" ry="20" fill="#888888" />
+</svg>
