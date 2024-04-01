@@ -109,12 +109,18 @@ def returnhome():
 
 @app.route("/api/fetchMovies/<id>", methods = ['POST'])
 def returnMovies(id):
-    print(id)
-    if(id == "37i9dQZF1EQpj7X7UK8OOF"): return jsonify({ 'message': "GOT IT!"})
-    return jsonify({'message': "NOPE!"})
+    print("Fetching movies")
+    moviesGenres = get_list_movies(id)
+    mg1, mg2, mg3 = moviesGenres 
+
+    if(len(id) == 23): return jsonify({
+         'first': mg1,
+         'second': mg2,
+         'third': mg3})
+    print("FAILED")
+    return None 
 
 
-print(get_list_movies("37i9dQZF1EQnqst5TRi17F"))
 
 if __name__ == "__main__":
     app.run(debug = True, port = 8080)

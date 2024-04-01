@@ -12,9 +12,9 @@ function returnMovies(playlistUrl: string){
   const finalURL = temp.concat(playlistID);
   console.log(finalURL);
 
-  const [message, setMessage] = useState(null);
-  const [data, setData] = useState(null);
-  const [response, setResponse] = useState(null);
+  const [mg1, setMg1] = useState(null);
+  const [mg2, setMg2] = useState(null);
+  const [mg3, setMg3] = useState(null);
 
   useEffect(() => {
     const go = async () => {
@@ -24,13 +24,23 @@ function returnMovies(playlistUrl: string){
           'Content-Type': 'application/json'
         }, });
       const data = await response.json();
-      setMessage(data.message);
+      setMg1(data.first);
+      setMg2(data.second);
+      setMg3(data.third);
     };
     go();
   },[])
 
-  console.log(message);
-  return <div>{message}</div>
+  console.log(mg1);
+  console.log(mg2);
+  console.log(mg3);
+
+
+  return <div>
+    <div>{mg1}</div>
+    <div>{mg2}</div>
+    <div>{mg3}</div>
+    </div>
 }
 
 export default function Home() {
