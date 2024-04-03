@@ -85,12 +85,9 @@ def get_list_movies(playlistID):
 
         movie_rows = movies.sample(n=4)
 
-        movie_names = []
 
         for index, row in movie_rows.iterrows():
-            movie_names.append(row['movie_name'])
-
-        list_movies.append(movie_names)
+            list_movies.append(row['movie_name'])
 
     return list_movies
 
@@ -111,15 +108,11 @@ def returnhome():
 def returnMovies(id):
     print("Fetching movies")
     moviesGenres = get_list_movies(id)
-    mg1, mg2, mg3 = moviesGenres 
-    movieList = mg1.append(mg2).append(mg3)
-    
-
-
-    if(len(id) == 22): return jsonify({
-         'movieList': movieList
-    })
-    print("FAILED")
+    if(moviesGenres): 
+        if(len(id) == 22): return jsonify({
+            'movieList': moviesGenres
+        })
+        print("FAILED")
 
     return jsonify({
         'movieList': ["Failed"]})

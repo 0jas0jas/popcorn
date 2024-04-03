@@ -568,6 +568,43 @@ import ReturnMovies from './ReturnMovies';
 // }
 
 
+function returnMovies(playlistUrl: string) {
+  const playlistID = playlistUrl.slice(34, 56);
+  const serverURL = "https://8080-0jas0jas-popcorn-k8vlt78igny.ws-us110.gitpod.io/api/fetchMovies";
+  const finalURL = `${serverURL}/${playlistID}`;
+
+  const [movieList, setMovieList] = useState<string[]>([]); // Initial value is an empty array
+
+  useEffect(() => {
+    const fetchMovieList = async () => {
+      try {
+        const response = await fetch(finalURL, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          }
+        });
+        if (!response.ok) {
+          throw new Error('Failed to fetch movie list');
+        }
+        const data = await response.json();
+        setMovieList(data.movieList);
+      } catch (error) {
+        console.error('Error fetching movie list:', error);
+        // Handle error: e.g., set a flag to display an error message to the user
+      }
+    };
+
+    fetchMovieList();
+
+    return () => {
+      
+    };
+  }, [playlistUrl, finalURL]); 
+
+  return movieList; // Return the movieList state variable
+}
+
 
 export default function Home() {
   return (
@@ -587,7 +624,7 @@ export default function Home() {
         <div className="col-span-2 h-32 text-center"></div>
 
         <div className="col-span-2">
-          <ReturnMovies movieList={["The Matrix", "The Hangover", "Boyhood", "Empire Strikes Back"]}/>
+          <ReturnMovies movieList={returnMovies("https://open.spotify.com/playlist/37i9dQZF1DWYMfG0Phlxx8?si=449db0e5cb3140b0")}/>
         </div>
       </div>
     </main>

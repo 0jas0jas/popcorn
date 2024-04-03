@@ -55,12 +55,18 @@ function ReturnMovies({ movieList }) {
     return <div>Loading...</div>;
   }
 
+//   .filter(function(mv) {
+//     if (mv) {
+//     return true; // skip
+//     }
+//     return false;
+// })
 
   return (
     <div className="min-h-screen col-span-2 grid grid-cols-2 gap-12 p-24 place-items-center font-mono bg-gray-900">
-      {movies.map(movieData => {
+      { movies.map(movieData => {
         console.log("YOOOOO You made it here");
-        console.log(movieData.results[0].title); 
+        // console.log(movieData.results[0].title); 
         let genre = "";
         movieData.results[0].genre_ids.forEach((id: number) => {
             genre = genreDict[id] + " | " + genre;
