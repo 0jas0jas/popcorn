@@ -112,19 +112,17 @@ def returnMovies(id):
     print("Fetching movies")
     moviesGenres = get_list_movies(id)
     mg1, mg2, mg3 = moviesGenres 
+    movieList = mg1.append(mg2).append(mg3)
     
 
 
     if(len(id) == 22): return jsonify({
-         'first': mg1,
-         'second': mg2,
-         'third': mg3})
+         'movieList': movieList
+    })
     print("FAILED")
 
     return jsonify({
-        'first': ["did"],
-        'second':["not"],
-        'third': ["run"]})
+        'movieList': ["Failed"]})
 
 
 if __name__ == "__main__":
