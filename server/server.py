@@ -30,8 +30,8 @@ rf_classifier.fit(X, y)
 
 # get list of movies
 def get_list_movies(playlistID):
-    os.environ["SPOTIPY_CLIENT_ID"] = "f5836f58dc294b01bcb8c900dc75bf2e"
-    os.environ["SPOTIPY_CLIENT_SECRET"] = "70784fe056534696ba70dfbd18a045bb"
+    os.environ["SPOTIPY_CLIENT_ID"] = "eba511b4fba64cb1a4a12d9e4c0c1626"
+    os.environ["SPOTIPY_CLIENT_SECRET"] = "7f1b8994e4e748bcbbc6f16d162a15bd"
 
     sp = spotipy.Spotify(client_credentials_manager=SpotifyClientCredentials())
 
